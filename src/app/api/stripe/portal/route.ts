@@ -1,3 +1,5 @@
+export const runtime = 'nodejs'
+
 import { NextResponse } from 'next/server'
 import { getAuthUser } from '@/lib/auth'
 import { createPortalSession } from '@/services/stripe.service'

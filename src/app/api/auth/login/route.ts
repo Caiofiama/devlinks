@@ -1,3 +1,5 @@
+export const runtime = 'nodejs'
+
 import { NextRequest, NextResponse } from 'next/server'
 import { loginSchema } from '@/lib/validations'
 import { loginUser } from '@/services/auth.service'
