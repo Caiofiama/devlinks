@@ -11,12 +11,19 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
+const DEMO = { email: 'demo@devlinks.dev', password: 'Demo@123' }
+
 export default function LoginPage() {
   const router = useRouter()
   const [error, setError] = useState('')
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<LoginInput>({
+  const { register, handleSubmit, setValue, formState: { errors, isSubmitting } } = useForm<LoginInput>({
     resolver: zodResolver(loginSchema),
   })
+
+  function fillDemo() {
+    setValue('email', DEMO.email)
+    setValue('password', DEMO.password)
+  }
 
   async function onSubmit(data: LoginInput) {
     setError('')
@@ -42,6 +49,19 @@ export default function LoginPage() {
           <CardDescription>Sign in to your DevLinks account</CardDescription>
         </CardHeader>
         <CardContent>
+          <div className="mb-4 rounded-lg border border-blue-200 bg-blue-50 p-3">
+            <p className="text-xs font-semibold text-blue-700 mb-1">Demo account</p>
+            <p className="text-xs text-blue-600">
+              <span className="font-mono">demo@devlinks.dev</span> / <span className="font-mono">Demo@123</span>
+            </p>
+            <button
+              type="button"
+              onClick={fillDemo}
+              className="mt-2 text-xs font-medium text-blue-700 underline underline-offset-2 hover:text-blue-900"
+            >
+              Click to fill automatically
+            </button>
+          </div>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div>
               <Label htmlFor="email">Email</Label>
