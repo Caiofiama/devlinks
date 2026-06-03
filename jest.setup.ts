@@ -1,0 +1,6 @@
+process.env['JWT_SECRET'] = 'test_secret_key_32_chars_minimum!!'
+process.env['DATABASE_URL'] = 'postgresql://test'
+process.env['STRIPE_SECRET_KEY'] = 'sk_test_mock'
+process.env['STRIPE_PRO_PRICE_ID'] = 'price_test'
+process.env['STRIPE_WEBHOOK_SECRET'] = 'whsec_test'
+process.env['NEXT_PUBLIC_APP_URL'] = 'http://localhost:3000'
